@@ -26,7 +26,7 @@ struct s_node
 /* Prototypes */
 T_Tree arbre_vide();
 void insertion_feuille(T_Tree *T, int i);
-bool recherche(T_Tree T, int i);
+bool AVL_recherche(T_Tree T, int i);
 void lecture_arbre(T_Tree T);
 void rotation_g(T_Tree *T);
 void rotation_d(T_Tree *T);

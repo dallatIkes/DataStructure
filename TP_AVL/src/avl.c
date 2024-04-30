@@ -101,7 +101,7 @@ void rotation_g_d(T_Tree *T)
     rotation_d(T);
 
     // mise a jour des degres
-    switch (dtmp->eq)
+    /*switch (dtmp->eq)
     {
     case -1:
         gtmp->eq = 1;
@@ -119,7 +119,7 @@ void rotation_g_d(T_Tree *T)
     // mise a jour du degre de la future racine
     dtmp->eq = 0;
     // mise a jour de l'arbre *T
-    (*T) = dtmp;
+    (*T) = dtmp;*/
 }
 
 void rotation_d_g(T_Tree *T)
@@ -137,7 +137,7 @@ void rotation_d_g(T_Tree *T)
     rotation_g(T);
 
     // mise a jour des degres
-    switch (gtmp->eq)
+    /*switch (gtmp->eq)
     {
     case 1:
         dtmp->eq = -1;
@@ -155,7 +155,7 @@ void rotation_d_g(T_Tree *T)
     // mise a jour du degre de la future racine
     gtmp->eq = 0;
     // mise a jour de l'arbre *T
-    (*T) = gtmp;
+    (*T) = gtmp;*/
 }
 
 void insertion(T_Tree *T, int i, int *h)
@@ -245,4 +245,30 @@ void insertion_feuille(T_Tree *T, int i)
 {
     int h = 0;
     insertion(T, i, &h);
+}
+
+bool AVL_recherche(T_Tree T, int i)
+{
+    if (T == NULL)
+    {
+        return false;
+    }
+    else
+    {
+        if (T->val == i)
+        {
+            return true;
+        }
+        else
+        {
+            if (i < T->val)
+            {
+                return AVL_recherche(T->g, i);
+            }
+            else
+            {
+                return AVL_recherche(T->d, i);
+            }
+        }
+    }
 }
